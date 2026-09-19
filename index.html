@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="message">My Interactive Page</h1>
+  <h3 id="change">I am still learning JavaScript</h3>
+  <h4 id="move">Loading..</h4>
+  <button id="greet">Say Hello</button>
+  <button id="name">Enter your name</button>
+  <button id="btn">Change the message</button>
+  <p id="mouse">Move your mouse here</p>
+  <ul id="list">
+    <li>Drawing</li>
+    <li>Playing music</li>
+    <li>Gaming</li>
+  </ul>
+  <script>
+    let pageStatus="Loading...";
+    window.onload=function(){
+      pageStatus="The page is ready!";
+      document.getElementById("move").innerHTML=pageStatus;
+    }
+    document.getElementById("greet").addEventListener("click",function(){
+      alert("Hello to you too! Have fun!");
+    })
+    document.getElementById("name").addEventListener("click",function(){
+        uname=prompt("What is your name?");
+        document.getElementById("message").innerHTML="Hey There, "+uname+"!";
+        document.getElementById("message").style.backgroundColor="yellow";
+        document.getElementById("message").style.display="inline";
+    })
+    document.getElementById("btn").addEventListener("click",function(){
+        uchoice=prompt("What do you want to change it into?");
+        document.getElementById("change").innerHTML=uchoice;
+    })
+    document.getElementById("mouse").addEventListener("mouseenter",function(){
+      document.getElementById("mouse").innerHTML="you found meeee";
+      document.getElementById("mouse").style.backgroundColor="Orange";
+    })
+    document.getElementById("mouse").addEventListener("mouseleave",function(){
+      document.getElementById("mouse").removeAttribute("style"); 
+      document.getElementById("mouse").innerHTML="Move your mouse here";
+    })
+    document.getElementById("message").addEventListener("dblclick",function(){
+        document.getElementById("message").removeAttribute("style");
+        document.getElementById("message").innerHTML="My Interactive Page"
+    })
+    document.getElementById("list").addEventListener("mouseover",function(){
+      document.getElementById("list").style.color="deeppink";
+    })
+  </script>
+</body>
+</html>
